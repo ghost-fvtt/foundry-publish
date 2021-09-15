@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/ghost-fvtt/foundry-publish/compare/v1.0.0...v1.1.0) (2021-09-15)
+
+
+### Features
+
+* add dockerfile ([760887a](https://github.com/ghost-fvtt/foundry-publish/commit/760887afd537df003a126bd562a3c44a6874d15f))
+
 ## [1.0.0](https://github.com/ghost-fvtt/foundry-publish/compare/v0.0.4...v1.0.0) (2021-09-15)
 
 ### [0.0.4](https://github.com/ghost-fvtt/foundry-publish/compare/v0.0.3...v0.0.4) (2021-09-15)
