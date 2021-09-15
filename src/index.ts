@@ -14,7 +14,7 @@ program
     '--compatibleCoreVersion <version>',
     'The maximum version of the core Foundry software beyond which compatibility of the package is not guaranteed',
   )
-  .option('--manifestURL <url>', 'The URL of the manifest of the package version being pulished')
+  .option('--manifestURL <url>', 'The URL of the manifest of the package version being published')
   .option('--manifestPath <path>', 'A path to a manifest file to read information from')
   .option(
     '--minimumCoreVersion <version>',
