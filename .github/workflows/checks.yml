@@ -1,8 +1,14 @@
 name: Checks
 
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - '*'
+    tags-ignore:
+      - 'v*.*.*'
+  pull_request:
+    branches:
+      - '*'
 
 env:
   node_version: 14
