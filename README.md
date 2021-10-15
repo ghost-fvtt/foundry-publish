@@ -1,5 +1,11 @@
 # Foundry Publish
 
+[![Checks](https://github.com/ghost-fvtt/foundry-publish/workflows/Checks/badge.svg)](https://github.com/ghost-fvtt/foundry-publish/actions)
+[![npm downloads](https://img.shields.io/npm/dm/@ghost-fvtt/foundry-publish?color=orange&logo=npm)](https://www.npmjs.com/package/@ghost-fvtt/foundry-publish)
+[![Docker pulls](https://img.shields.io/docker/pulls/johannesloher/foundry-publish?logo=docker)](https://hub.docker.com/r/johannesloher/foundry-publish)
+![Repository License](https://img.shields.io/github/license/ghost-fvtt/foundry-publish)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-ghostfvtt-00B9FE?logo=kofi)](https://ko-fi.com/ghostfvtt)
+
 Foundry Publish is a CLI tool that developers can use to add new versions of
 their packages for [Foundry Virtual Tabletop] to the [Package Administration].
 
@@ -15,7 +21,7 @@ Alternatively you can install it globally and then execute it:
 
 ```
 npm install -g @ghost-fvtt/foundry-publish
-foundry-factory [options]
+foundry-publish [options]
 ```
 
 ### Options
