@@ -6,11 +6,6 @@ on:
       - '*'
     tags-ignore:
       - 'v*.*.*'
-  create:
-    branches:
-      - '*'
-    tags-ignore:
-      - 'v*.*.*'
   pull_request:
     branches:
       - '*'
