@@ -67,7 +67,6 @@ jobs:
           npm publish --ignore-scripts
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          HUSKY: 0
 
   publish-to-dockerhub:
     needs: build
