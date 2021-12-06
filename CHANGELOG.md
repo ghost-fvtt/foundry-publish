@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/ghost-fvtt/foundry-publish/compare/v1.1.6...v1.2.0) (2021-12-06)
+
+
+### Features
+
+* make changelogURL optional ([afb4e2a](https://github.com/ghost-fvtt/foundry-publish/commit/afb4e2a60abe5fa5aea0180c245d1874aeb4ab1d)), closes [#14](https://github.com/ghost-fvtt/foundry-publish/issues/14)
+
 ### [1.1.6](https://github.com/ghost-fvtt/foundry-publish/compare/v1.1.5...v1.1.6) (2021-11-05)
 
 ### [1.1.5](https://github.com/ghost-fvtt/foundry-publish/compare/v1.1.4...v1.1.5) (2021-11-05)
