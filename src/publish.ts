@@ -36,7 +36,9 @@ async function updatePackage(page: puppeteer.Page, options: Options) {
 
   await editField(page, `#id_${id}-version`, options.packageVersion);
   await editField(page, `#id_${id}-manifest`, options.manifestURL);
-  await editField(page, `#id_${id}-notes`, options.changelogURL);
+  if (options.changelogURL !== undefined) {
+    await editField(page, `#id_${id}-notes`, options.changelogURL);
+  }
   await editField(page, `#id_${id}-required_core_version`, options.minimumCoreVersion);
   await editField(page, `#id_${id}-compatible_core_version`, options.compatibleCoreVersion);
 

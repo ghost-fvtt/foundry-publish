@@ -14,8 +14,9 @@ export interface CLIOptions {
   username?: string;
 }
 
-const optionKeys = [
-  'changelogURL',
+const optionalOptionKeys = ['changelogURL'] as const;
+
+const requiredOptionKeys = [
   'compatibleCoreVersion',
   'manifestURL',
   'minimumCoreVersion',
@@ -25,7 +26,9 @@ const optionKeys = [
   'password',
 ] as const;
 
-export type Options = { [Key in typeof optionKeys[number]]: string };
+export type Options = { [Key in typeof requiredOptionKeys[number]]: string } & {
+  [Key in typeof optionalOptionKeys[number]]?: string;
+};
 
 export function processOptions(cliOptions: CLIOptions): Partial<Options> {
   return mergeWithManifestIfNeeded(mergeWithEnvironmentVariables(cliOptions));
@@ -74,11 +77,12 @@ function deleteUndefinedKeys<T>(t: T): Partial<T> {
 }
 
 export function validateOptions(options: Partial<Options>, program: Command): options is Options {
-  for (const optionKey of optionKeys) {
+  for (const optionKey of requiredOptionKeys) {
     if (options[optionKey] === undefined) {
       console.error(`Missing option ${optionKey}.`);
       program.help();
     }
   }
+  console.log(options);
   return true;
 }

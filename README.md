@@ -32,17 +32,17 @@ one exception: For security reasons, the password required to authenticate with
 the [Package Administration] can _only_ be provided as environment variable.
 Additionally, a couple of options can also be read from a manifest file.
 
-| Command Line Parameter    | Environment Variable           | Manifest Property       | Description                                                                                                  |
-| ------------------------- | ------------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------ |
-| `--changelogURL`          | `FVTT_CHANGELOG_URL`           | `changelog`             | The URL of the changelog of the package version being published                                              |
-| `--compatibleCoreVersion` | `FVTT_COMPATIBLE_CORE_VERSION` | `compatibleCoreVersion` | The maximum version of the core Foundry software beyond which compatibility of the package is not guaranteed |
-| `--manifestURL`           | `FVTT_MANIFEST_URL`            | `manifest`              | The URL of the manifest of the package version being published                                               |
-| `--manifestPath`          | `FVTT_MANIFEST_PATH`           |                         | A path to a manifest file to read information from                                                           |
-| `--minimumCoreVersion`    | `FVTT_MINIMUM_CORE_VERSION`    | `minimumCoreVersion`    | The minimum version of the core Foundry software which is required to use the package                        |
-| `--packageID`             | `FVTT_PACKAGE_ID`              |                         | The numeric ID of the package                                                                                |
-| `--packageVersion`        | `FVTT_PACKAGE_VERSION`         | `version`               | The version of the package                                                                                   |
-|                           | `FVTT_PASSWORD`                |                         | The password of the account for accessing the Foundry VTT administration page                                |
-| `--username`              | `FVTT_USERNAME`                |                         | The username of the account for accessing the Foundry VTT administration page                                |
+| Command Line Parameter    | Environment Variable           | Manifest Property       | Description                                                                                                  | Required |
+| ------------------------- | ------------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------ | -------- |
+| `--changelogURL`          | `FVTT_CHANGELOG_URL`           | `changelog`             | The URL of the changelog of the package version being published                                              | No       |
+| `--compatibleCoreVersion` | `FVTT_COMPATIBLE_CORE_VERSION` | `compatibleCoreVersion` | The maximum version of the core Foundry software beyond which compatibility of the package is not guaranteed | Yes      |
+| `--manifestURL`           | `FVTT_MANIFEST_URL`            | `manifest`              | The URL of the manifest of the package version being published                                               | Yes      |
+| `--manifestPath`          | `FVTT_MANIFEST_PATH`           |                         | A path to a manifest file to read information from                                                           | No       |
+| `--minimumCoreVersion`    | `FVTT_MINIMUM_CORE_VERSION`    | `minimumCoreVersion`    | The minimum version of the core Foundry software which is required to use the package                        | Yes      |
+| `--packageID`             | `FVTT_PACKAGE_ID`              |                         | The numeric ID of the package                                                                                | Yes      |
+| `--packageVersion`        | `FVTT_PACKAGE_VERSION`         | `version`               | The version of the package                                                                                   | Yes      |
+|                           | `FVTT_PASSWORD`                |                         | The password of the account for accessing the Foundry VTT administration page                                | Yes      |
+| `--username`              | `FVTT_USERNAME`                |                         | The username of the account for accessing the Foundry VTT administration page                                | Yes      |
 
 ## Development
 
