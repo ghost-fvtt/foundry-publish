@@ -68,7 +68,7 @@
     "fp-ts": "^2.11.5",
     "fs-extra": "^10.0.0",
     "io-ts": "^2.2.16",
-    "puppeteer": "^12.0.1",
+    "puppeteer": "^13.0.0",
     "querystring": "^0.2.1"
   }
 }
