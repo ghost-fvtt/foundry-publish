@@ -47,7 +47,7 @@
     "*.(json|yml)": "prettier --write"
   },
   "devDependencies": {
-    "@commitlint/cli": "15.0.0",
+    "@commitlint/cli": "16.0.0",
     "@commitlint/config-conventional": "15.0.0",
     "@types/node": "16.11.17",
     "@typescript-eslint/eslint-plugin": "5.8.0",
