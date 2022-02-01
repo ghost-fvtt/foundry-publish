@@ -9,7 +9,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "build:watch": "tsc --watch",
+    "watch": "tsc --watch",
     "lint": "eslint --ext .ts,.js,.cjs .",
     "lint:fix": "eslint --ext .ts,.js,.cjs --fix .",
     "format": "prettier --write './**/*.(ts|js|cjs|json|yml)'",
@@ -68,7 +68,6 @@
     "fp-ts": "^2.11.5",
     "fs-extra": "^10.0.0",
     "io-ts": "^2.2.16",
-    "puppeteer": "^13.0.0",
-    "querystring": "^0.2.1"
+    "playwright-chromium": "^1.18.1"
   }
 }

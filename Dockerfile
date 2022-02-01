@@ -7,9 +7,9 @@ RUN npm ci
 RUN npm run build
 RUN chmod +x ./dist/index.js
 
-FROM buildkite/puppeteer:latest
+FROM mcr.microsoft.com/playwright:v1.15.0
 WORKDIR /app
-ENV NDOE_ENV=production
+ENV NODE_ENV=production
 COPY package.json .
 COPY package-lock.json .
 RUN npm ci
