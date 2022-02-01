@@ -76,12 +76,11 @@ function deleteUndefinedKeys<T>(t: T): Partial<T> {
   return copy;
 }
 
-export function validateOptions(options: Partial<Options>, program: Command): options is Options {
+export function validateOptions(options: Partial<Options>, program: Command): asserts options is Options {
   for (const optionKey of requiredOptionKeys) {
     if (options[optionKey] === undefined) {
       console.error(`Missing option ${optionKey}.`);
       program.help();
     }
   }
-  return true;
 }

@@ -12,8 +12,6 @@ export async function publish(options: Options): Promise<void> {
     const page = await browser.newPage();
     await login(page, options);
     await updatePackage(page, options);
-  } catch (err) {
-    console.log(err);
   } finally {
     await browser.close();
   }

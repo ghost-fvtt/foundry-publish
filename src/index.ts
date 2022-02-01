@@ -25,9 +25,8 @@ program
   .option('--username <username>', 'The username of the account for accessing the FoundryVTT administration page')
   .action(async (options: CLIOptions, program: Command) => {
     const processedOptions = processOptions(options);
-    if (validateOptions(processedOptions, program)) {
-      await publish(processedOptions);
-    }
+    validateOptions(processedOptions, program);
+    await publish(processedOptions);
   });
 
 program.parse(process.argv);
