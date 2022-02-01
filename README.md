@@ -75,7 +75,7 @@ npm run build
 Alternatively, you can run
 
 ```
-npm run build:watch
+npm run watch
 ```
 
 to watch for changes and automatically build as necessary.
