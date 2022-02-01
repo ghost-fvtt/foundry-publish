@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/ghost-fvtt/foundry-publish/compare/v1.3.0...v1.3.1) (2022-02-01)
+
+
+### Bug Fixes
+
+* fix waiting for navigation after submitting ([1eac52a](https://github.com/ghost-fvtt/foundry-publish/commit/1eac52ab610bd7a3f39589d8d6561a4ec8f5adf9))
+* return non-zero exit code when an error occurs ([c3917cc](https://github.com/ghost-fvtt/foundry-publish/commit/c3917cc3d09efa6ddfb978d658e5affacf00a43a))
+
 ## [1.3.0](https://github.com/ghost-fvtt/foundry-publish/compare/v1.2.0...v1.3.0) (2022-02-01)
 
 
