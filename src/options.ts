@@ -6,6 +6,7 @@ import { Manifest } from './manifest.js';
 export interface CLIOptions {
   changelogURL?: string;
   compatibleCoreVersion?: string;
+  deleteObsoleteVersions?: boolean;
   manifestURL?: string;
   manifestPath?: string;
   minimumCoreVersion?: string;
@@ -13,8 +14,8 @@ export interface CLIOptions {
   packageVersion?: string;
   username?: string;
 }
-
-const optionalOptionKeys = ['changelogURL'] as const;
+const optionalStringOptionKeys = ['changelogURL'] as const;
+const optionalBooleanOptionKeys = ['deleteObsoleteVersions'] as const;
 
 const requiredOptionKeys = [
   'compatibleCoreVersion',
@@ -27,7 +28,9 @@ const requiredOptionKeys = [
 ] as const;
 
 export type Options = { [Key in typeof requiredOptionKeys[number]]: string } & {
-  [Key in typeof optionalOptionKeys[number]]?: string;
+  [Key in typeof optionalStringOptionKeys[number]]?: string;
+} & {
+  [Key in typeof optionalBooleanOptionKeys[number]]?: boolean;
 };
 
 export function processOptions(cliOptions: CLIOptions): Partial<Options> {
@@ -59,6 +62,10 @@ function mergeWithEnvironmentVariables(options: CLIOptions): CLIOptions & Partia
   return deleteUndefinedKeys({
     changelogURL: process.env.FVTT_CHANGELOG_URL,
     compatibleCoreVersion: process.env.FVTT_COMPATIBLE_CORE_VERSION,
+    deleteObsoleteVersions:
+      process.env.FVTT_DELETE_OBSOLETE_VERSIONS !== undefined
+        ? process.env.FVTT_DELETE_OBSOLETE_VERSIONS === 'true'
+        : undefined,
     manifestURL: process.env.FVTT_MANIFEST_URL,
     manifestPath: process.env.FVTT_MANIFEST_PATH,
     minimumCoreVersion: process.env.FVTT_MINIMUM_CORE_VERSION,

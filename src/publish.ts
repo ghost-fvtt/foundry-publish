@@ -31,7 +31,8 @@ async function login(page: Page, { username, password }: Options) {
 async function updatePackage(page: Page, options: Options) {
   console.log('Trying to update the package...');
   await page.goto(path.join(foundryBaseURL, `admin/packages/package/${options.packageID}/change/`));
-  const id = await page.$eval('tr.dynamic-versions:not(.has_original)', (e) => e.id);
+
+  const id = await page.locator('tr.dynamic-versions:not(.has_original)').evaluate((e) => e.id);
 
   await page.fill(`#id_${id}-version`, options.packageVersion);
   await page.fill(`#id_${id}-manifest`, options.manifestURL);
@@ -40,6 +41,10 @@ async function updatePackage(page: Page, options: Options) {
   }
   await page.fill(`#id_${id}-required_core_version`, options.minimumCoreVersion);
   await page.fill(`#id_${id}-compatible_core_version`, options.compatibleCoreVersion);
+
+  if (options.deleteObsoleteVersions) {
+    await checkDeleteCheckboxes(page, options);
+  }
 
   if (isDevelopment()) {
     await page.route('**/*', (route) => {
@@ -57,6 +62,24 @@ async function updatePackage(page: Page, options: Options) {
   await Promise.all(promises);
 
   console.log('Package updated successfully.');
+}
+
+async function checkDeleteCheckboxes(page: Page, { compatibleCoreVersion }: Options) {
+  const versionIds = await page
+    .locator('tr.dynamic-versions.has_original')
+    .evaluateAll(
+      (elements, compatibleCoreVersion) =>
+        elements
+          .filter(
+            (e) =>
+              e.querySelector<HTMLInputElement>(`#id_${e.id}-compatible_core_version`)?.value === compatibleCoreVersion,
+          )
+          .map((e) => e.id),
+      compatibleCoreVersion,
+    );
+  for (const versionId of versionIds) {
+    await page.click(`#id_${versionId}-DELETE`);
+  }
 }
 
 function isDevelopment() {

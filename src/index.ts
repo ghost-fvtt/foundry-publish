@@ -14,6 +14,10 @@ program
     '--compatibleCoreVersion <version>',
     'The maximum version of the core Foundry software beyond which compatibility of the package is not guaranteed',
   )
+  .option(
+    '--deleteObsoleteVersions',
+    'Delete obsolete versions, i.e., all versions with the same compatible core version as the version being published',
+  )
   .option('--manifestURL <url>', 'The URL of the manifest of the package version being published')
   .option('--manifestPath <path>', 'A path to a manifest file to read information from')
   .option(
