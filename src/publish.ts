@@ -43,7 +43,7 @@ async function updatePackage(page: Page, options: Options) {
   await page.fill(`#id_${id}-required_core_version`, options.minimumCoreVersion);
   await page.fill(`#id_${id}-compatible_core_version`, options.compatibleCoreVersion);
 
-  if (process.env.NODE_ENV === 'development') {
+  if (isDevelopment()) {
     await page.route('**/*', (route) => {
       const request = route.request();
       route.abort();
@@ -51,9 +51,16 @@ async function updatePackage(page: Page, options: Options) {
     });
   }
 
-  await page.click('[name="_continue"]');
-  if (process.env.NODE_ENV !== 'development') {
-    await page.waitForNavigation({ waitUntil: 'load' });
+  const promises: Promise<unknown>[] = [];
+  if (!isDevelopment()) {
+    promises.push(page.waitForNavigation({ waitUntil: 'load' }));
   }
+  promises.push(page.click('[name="_continue"]'));
+  await Promise.all(promises);
+
   console.log('Package updated successfully.');
+}
+
+function isDevelopment() {
+  return process.env.NODE_ENV === 'development';
 }

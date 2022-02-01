@@ -7,3 +7,6 @@ dist
 
 # ESLint
 .eslintcache
+
+# .env file for testing
+.env
