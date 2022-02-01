@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/ghost-fvtt/foundry-publish/compare/v1.2.0...v1.3.0) (2022-02-01)
+
+
+### Features
+
+* switch from puppeteer to playwrigth ([925b716](https://github.com/ghost-fvtt/foundry-publish/commit/925b716f33ee944832b5962b20a83ca5fb3f1bcf))
+
+
+### Bug Fixes
+
+* don't log options ([25a2bd4](https://github.com/ghost-fvtt/foundry-publish/commit/25a2bd4ad46ff38b4e9f23db0fca6c90165a5629))
+
 ## [1.2.0](https://github.com/ghost-fvtt/foundry-publish/compare/v1.1.6...v1.2.0) (2021-12-06)
 
 
