@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/ghost-fvtt/foundry-publish/compare/v1.3.1...v1.4.0) (2022-02-01)
+
+
+### Features
+
+* add option to delete obsolete versions ([96a82f7](https://github.com/ghost-fvtt/foundry-publish/commit/96a82f73e6f76dbd0c05a1f239bd824919a594cd)), closes [#83](https://github.com/ghost-fvtt/foundry-publish/issues/83)
+
 ### [1.3.1](https://github.com/ghost-fvtt/foundry-publish/compare/v1.3.0...v1.3.1) (2022-02-01)
 
 
