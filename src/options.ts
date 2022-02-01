@@ -83,6 +83,5 @@ export function validateOptions(options: Partial<Options>, program: Command): op
       program.help();
     }
   }
-  console.log(options);
   return true;
 }
