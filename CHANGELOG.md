@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/ghost-fvtt/foundry-publish/compare/v1.4.1...v2.0.0) (2022-05-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* Instead of the user name of the regular foundry website, the username now might need to be set to
+the email address.
+
+### Features
+
+* add support for the new foundry webpage and add a dry run mode ([71c616f](https://github.com/ghost-fvtt/foundry-publish/commit/71c616f5e73bc41475808f67f5613c13618f4960))
+
 ### [1.4.1](https://github.com/ghost-fvtt/foundry-publish/compare/v1.4.0...v1.4.1) (2022-02-02)
 
 ## [1.4.0](https://github.com/ghost-fvtt/foundry-publish/compare/v1.3.1...v1.4.0) (2022-02-01)
