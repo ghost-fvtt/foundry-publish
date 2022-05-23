@@ -13,6 +13,7 @@ ENV NODE_ENV=production
 COPY package.json .
 COPY package-lock.json .
 RUN npm ci --omit=dev --ignore-scripts
+RUN npx playwright install chromium --with-deps
 COPY --from=builder /app/dist ./dist
 RUN ln -s /app/dist/index.js /usr/local/bin/foundry-publish
 
