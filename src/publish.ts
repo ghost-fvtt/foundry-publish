@@ -6,7 +6,11 @@ import type { Options } from './options.js';
 const foundryBaseURL = 'https://foundryvtt.com/';
 
 export async function publish(options: Options): Promise<void> {
-  console.log(`Publishing Foundry VTT package with id '${options.packageID}'.`);
+  if (options.dryRun) {
+    console.log(`Performing a dry run of publishing Foundry VTT package with id '${options.packageID}'.`);
+  } else {
+    console.log(`Publishing Foundry VTT package with id '${options.packageID}'.`);
+  }
   const browser = await chromium.launch({ headless: true });
   try {
     const page = await browser.newPage();
@@ -19,12 +23,11 @@ export async function publish(options: Options): Promise<void> {
 
 async function login(page: Page, { username, password }: Options) {
   console.log('Trying to login...');
-  await page.goto(foundryBaseURL, { waitUntil: 'load' });
-  await page.click('[for="modal-login-trigger"]');
-  await page.fill('[name="login_username"]', username);
-  await page.fill('[name="login_password"]', password);
-  await page.click('#login-login');
-  await page.waitForSelector('#login-welcome');
+  await page.goto(path.join(foundryBaseURL, 'admin'), { waitUntil: 'load' });
+  await page.fill('[name="username"]', username);
+  await page.fill('[name="password"]', password);
+  await page.click('input[type="submit"]');
+  await page.waitForSelector('#user-tools:has-text("Welcome")');
   console.log('Login successful.');
 }
 
@@ -46,7 +49,7 @@ async function updatePackage(page: Page, options: Options) {
     await checkDeleteCheckboxes(page, options);
   }
 
-  if (isDevelopment()) {
+  if (options.dryRun) {
     await page.route('**/*', (route) => {
       const request = route.request();
       route.abort();
@@ -55,7 +58,7 @@ async function updatePackage(page: Page, options: Options) {
   }
 
   const promises: Promise<unknown>[] = [];
-  if (!isDevelopment()) {
+  if (!options.dryRun) {
     promises.push(page.waitForNavigation({ waitUntil: 'load' }));
   }
   promises.push(page.click('[name="_continue"]'));
@@ -80,8 +83,4 @@ async function checkDeleteCheckboxes(page: Page, { compatibleCoreVersion }: Opti
   for (const versionId of versionIds) {
     await page.click(`#id_${versionId}-DELETE`);
   }
-}
-
-function isDevelopment() {
-  return process.env.NODE_ENV === 'development';
 }

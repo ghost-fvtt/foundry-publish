@@ -7,6 +7,7 @@ export interface CLIOptions {
   changelogURL?: string;
   compatibleCoreVersion?: string;
   deleteObsoleteVersions?: boolean;
+  dryRun?: boolean;
   manifestURL?: string;
   manifestPath?: string;
   minimumCoreVersion?: string;
@@ -15,7 +16,7 @@ export interface CLIOptions {
   username?: string;
 }
 const optionalStringOptionKeys = ['changelogURL'] as const;
-const optionalBooleanOptionKeys = ['deleteObsoleteVersions'] as const;
+const optionalBooleanOptionKeys = ['deleteObsoleteVersions', 'dryRun'] as const;
 
 const requiredOptionKeys = [
   'compatibleCoreVersion',
@@ -66,6 +67,7 @@ function mergeWithEnvironmentVariables(options: CLIOptions): CLIOptions & Partia
       process.env.FVTT_DELETE_OBSOLETE_VERSIONS !== undefined
         ? process.env.FVTT_DELETE_OBSOLETE_VERSIONS === 'true'
         : undefined,
+    dryRun: process.env.FVTT_DRY_RUN !== undefined ? process.env.FVTT_DRY_RUN === 'true' : undefined,
     manifestURL: process.env.FVTT_MANIFEST_URL,
     manifestPath: process.env.FVTT_MANIFEST_PATH,
     minimumCoreVersion: process.env.FVTT_MINIMUM_CORE_VERSION,

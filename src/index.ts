@@ -18,6 +18,7 @@ program
     '--deleteObsoleteVersions',
     'Delete obsolete versions, i.e., all versions with the same compatible core version as the version being published',
   )
+  .option('--dryRun', 'Just perform a dry run instead of actually publishing the package')
   .option('--manifestURL <url>', 'The URL of the manifest of the package version being published')
   .option('--manifestPath <path>', 'A path to a manifest file to read information from')
   .option(
@@ -26,7 +27,10 @@ program
   )
   .option('--packageID <id>', 'The numeric ID of the package')
   .option('--packageVersion <version>', 'The version of the package')
-  .option('--username <username>', 'The username of the account for accessing the FoundryVTT administration page')
+  .option(
+    '--username <username>',
+    'The username of the account for accessing the FoundryVTT administration page (you may need to use the email address)',
+  )
   .action(async (options: CLIOptions, program: Command) => {
     const processedOptions = processOptions(options);
     validateOptions(processedOptions, program);
