@@ -7,7 +7,7 @@ RUN npm ci --ignore-scripts
 RUN npm run build
 RUN chmod +x ./dist/index.js
 
-FROM mcr.microsoft.com/playwright:v1.22.2
+FROM mcr.microsoft.com/playwright:v1.23.0
 WORKDIR /app
 ENV NODE_ENV=production
 COPY package.json .
