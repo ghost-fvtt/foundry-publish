@@ -43,7 +43,10 @@ async function updatePackage(page: Page, options: Options) {
     await page.fill(`#id_${id}-notes`, options.changelogURL);
   }
   await page.fill(`#id_${id}-required_core_version`, options.minimumCoreVersion);
-  await page.fill(`#id_${id}-compatible_core_version`, options.compatibleCoreVersion);
+  await page.fill(`#id_${id}-compatible_core_version`, options.verifiedCoreVersion);
+  if (options.maximumCoreVersion !== undefined) {
+    await page.fill(`#id_${id}-maximum_core_version`, options.maximumCoreVersion);
+  }
 
   if (options.deleteObsoleteVersions) {
     await checkDeleteCheckboxes(page, options);
@@ -67,7 +70,7 @@ async function updatePackage(page: Page, options: Options) {
   console.log('Package updated successfully.');
 }
 
-async function checkDeleteCheckboxes(page: Page, { compatibleCoreVersion }: Options) {
+async function checkDeleteCheckboxes(page: Page, { verifiedCoreVersion }: Options) {
   const versionIds = await page
     .locator('tr.dynamic-versions.has_original')
     .evaluateAll(
@@ -78,7 +81,7 @@ async function checkDeleteCheckboxes(page: Page, { compatibleCoreVersion }: Opti
               e.querySelector<HTMLInputElement>(`#id_${e.id}-compatible_core_version`)?.value === compatibleCoreVersion,
           )
           .map((e) => e.id),
-      compatibleCoreVersion,
+      verifiedCoreVersion,
     );
   for (const versionId of versionIds) {
     await page.click(`#id_${versionId}-DELETE`);

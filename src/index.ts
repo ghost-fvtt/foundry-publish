@@ -11,16 +11,16 @@ program
   .version(version, '-v, --version', 'Show the version number of Foundry Publish')
   .option('--changelogURL <url>', 'The URL of the changelog of the package version being published')
   .option(
-    '--compatibleCoreVersion <version>',
-    'The maximum version of the core Foundry software beyond which compatibility of the package is not guaranteed',
-  )
-  .option(
     '--deleteObsoleteVersions',
-    'Delete obsolete versions, i.e., all versions with the same compatible core version as the version being published',
+    'Delete obsolete versions, i.e., all versions with the same verified core version as the version being published',
   )
   .option('--dryRun', 'Just perform a dry run instead of actually publishing the package')
   .option('--manifestURL <url>', 'The URL of the manifest of the package version being published')
   .option('--manifestPath <path>', 'A path to a manifest file to read information from')
+  .option(
+    '--maximumCoreVersion <version>',
+    'The maximum version of the core Foundry software which is allowed to use the package',
+  )
   .option(
     '--minimumCoreVersion <version>',
     'The minimum version of the core Foundry software which is required to use the package',
@@ -30,6 +30,10 @@ program
   .option(
     '--username <username>',
     'The username of the account for accessing the FoundryVTT administration page (you may need to use the email address)',
+  )
+  .option(
+    '--compatibleCoreVersion, --verifiedCoreVersion <version>',
+    'The maximum version of the core Foundry software for which compatibility of the package has been verified',
   )
   .action(async (options: CLIOptions, program: Command) => {
     const processedOptions = processOptions(options);

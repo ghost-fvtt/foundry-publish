@@ -5,21 +5,22 @@ import { Manifest } from './manifest.js';
 
 export interface CLIOptions {
   changelogURL?: string;
-  compatibleCoreVersion?: string;
+  verifiedCoreVersion?: string;
   deleteObsoleteVersions?: boolean;
   dryRun?: boolean;
   manifestURL?: string;
   manifestPath?: string;
+  maximumCoreVersion?: string;
   minimumCoreVersion?: string;
   packageID?: string;
   packageVersion?: string;
   username?: string;
 }
-const optionalStringOptionKeys = ['changelogURL'] as const;
+const optionalStringOptionKeys = ['changelogURL', 'maximumCoreVersion'] as const;
 const optionalBooleanOptionKeys = ['deleteObsoleteVersions', 'dryRun'] as const;
 
 const requiredOptionKeys = [
-  'compatibleCoreVersion',
+  'verifiedCoreVersion',
   'manifestURL',
   'minimumCoreVersion',
   'packageID',
@@ -46,10 +47,11 @@ function mergeWithManifestIfNeeded(options: CLIOptions & Partial<Options>): Part
       const { right: manifest } = manifestValidation;
       return deleteUndefinedKeys({
         changelogURL: manifest.changelog,
-        compatibleCoreVersion: manifest.compatibleCoreVersion,
         manifestURL: manifest.manifest,
-        minimumCoreVersion: manifest.minimumCoreVersion,
+        maximumCoreVersion: manifest.compatibility?.maximum,
+        minimumCoreVersion: manifest.compatibility?.minimum ?? manifest.minimumCoreVersion,
         packageVersion: manifest.version,
+        verifiedCoreVersion: manifest.compatibility?.verified ?? manifest.compatibleCoreVersion,
         ...remainingOptions,
       });
     } else {
@@ -62,7 +64,6 @@ function mergeWithManifestIfNeeded(options: CLIOptions & Partial<Options>): Part
 function mergeWithEnvironmentVariables(options: CLIOptions): CLIOptions & Partial<Options> {
   return deleteUndefinedKeys({
     changelogURL: process.env.FVTT_CHANGELOG_URL,
-    compatibleCoreVersion: process.env.FVTT_COMPATIBLE_CORE_VERSION,
     deleteObsoleteVersions:
       process.env.FVTT_DELETE_OBSOLETE_VERSIONS !== undefined
         ? process.env.FVTT_DELETE_OBSOLETE_VERSIONS === 'true'
@@ -70,11 +71,13 @@ function mergeWithEnvironmentVariables(options: CLIOptions): CLIOptions & Partia
     dryRun: process.env.FVTT_DRY_RUN !== undefined ? process.env.FVTT_DRY_RUN === 'true' : undefined,
     manifestURL: process.env.FVTT_MANIFEST_URL,
     manifestPath: process.env.FVTT_MANIFEST_PATH,
+    maximumCoreVersion: process.env.FVTT_MAXIMUM_CORE_VERSION,
     minimumCoreVersion: process.env.FVTT_MINIMUM_CORE_VERSION,
     packageID: process.env.FVTT_PACKAGE_ID,
     packageVersion: process.env.FVTT_PACKAGE_VERSION,
-    username: process.env.FVTT_USERNAME,
     password: process.env.FVTT_PASSWORD,
+    username: process.env.FVTT_USERNAME,
+    verifiedCoreVersion: process.env.FVTT_VERIFIED_CORE_VERSION ?? process.env.FVTT_COMPATIBLE_CORE_VERSION,
     ...options,
   });
 }
