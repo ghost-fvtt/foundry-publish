@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/ghost-fvtt/foundry-publish/compare/v2.0.1...v2.1.0) (2022-07-17)
+
+
+### Features
+
+* add support for v10 manifests and maximum core version ([9dedd81](https://github.com/ghost-fvtt/foundry-publish/commit/9dedd818855a709fb3ea9ae46622a8420881dd0a))
+
 ### [2.0.1](https://github.com/ghost-fvtt/foundry-publish/compare/v2.0.0...v2.0.1) (2022-05-23)
 
 
