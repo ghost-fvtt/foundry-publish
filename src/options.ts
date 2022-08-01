@@ -1,7 +1,10 @@
 import type { Command } from 'commander';
+import { chain, getOrElseW, tryCatch } from 'fp-ts/lib/Either.js';
+import { pipe } from 'fp-ts/lib/function.js';
 import { readFileSync } from 'fs';
+import { failure } from 'io-ts/lib/PathReporter.js';
 
-import { Manifest } from './manifest.js';
+import { ManifestFromString } from './manifest.js';
 
 export interface CLIOptions {
   changelogURL?: string;
@@ -42,21 +45,26 @@ export function processOptions(cliOptions: CLIOptions): Partial<Options> {
 function mergeWithManifestIfNeeded(options: CLIOptions & Partial<Options>): Partial<Options> {
   const { manifestPath, ...remainingOptions } = options;
   if (manifestPath !== undefined) {
-    const manifestValidation = Manifest.decode(JSON.parse(readFileSync(manifestPath).toString()));
-    if (manifestValidation._tag === 'Right') {
-      const { right: manifest } = manifestValidation;
-      return deleteUndefinedKeys({
-        changelogURL: manifest.changelog,
-        manifestURL: manifest.manifest,
-        maximumCoreVersion: manifest.compatibility?.maximum,
-        minimumCoreVersion: manifest.compatibility?.minimum ?? manifest.minimumCoreVersion,
-        packageVersion: manifest.version,
-        verifiedCoreVersion: manifest.compatibility?.verified ?? manifest.compatibleCoreVersion,
-        ...remainingOptions,
-      });
-    } else {
-      console.warn(`${manifestPath} is not a valid manifest file, ignoring it.`);
-    }
+    const manifest = pipe(
+      tryCatch(
+        () => readFileSync(manifestPath).toString(),
+        (e) => [{ context: [], value: manifestPath, message: (e as Error).message }],
+      ),
+      chain(ManifestFromString.decode),
+      getOrElseW((es): void => {
+        console.warn(`${manifestPath} is not a valid manifest file, ignoring it.`, failure(es));
+      }),
+    );
+
+    return deleteUndefinedKeys({
+      changelogURL: manifest?.changelog,
+      manifestURL: manifest?.manifest,
+      maximumCoreVersion: manifest?.compatibility?.maximum,
+      minimumCoreVersion: manifest?.compatibility?.minimum ?? manifest?.minimumCoreVersion,
+      packageVersion: manifest?.version,
+      verifiedCoreVersion: manifest?.compatibility?.verified ?? manifest?.compatibleCoreVersion,
+      ...remainingOptions,
+    });
   }
   return remainingOptions;
 }
