@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.1](https://github.com/ghost-fvtt/foundry-publish/compare/v2.2.0...v2.2.1) (2022-09-11)
+
+
+### Bug Fixes
+
+* log information about obsolete versions being deleted ([40ec88d](https://github.com/ghost-fvtt/foundry-publish/commit/40ec88d221e08eef2979e6ea2dc69cd56788a6f8))
+
 ## [2.2.0](https://github.com/ghost-fvtt/foundry-publish/compare/v2.1.0...v2.2.0) (2022-08-01)
 
 
