@@ -90,7 +90,7 @@ function mergeWithEnvironmentVariables(options: CLIOptions): CLIOptions & Partia
   });
 }
 
-function deleteUndefinedKeys<T>(t: T): Partial<T> {
+function deleteUndefinedKeys<T extends object>(t: T): Partial<T> {
   const copy = { ...t };
   (Object.keys(copy) as (keyof T)[]).forEach((key) => copy[key] === undefined && delete copy[key]);
   return copy;
