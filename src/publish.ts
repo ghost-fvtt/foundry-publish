@@ -22,7 +22,7 @@ export async function publish(options: Options): Promise<void> {
 }
 
 async function login(page: Page, { username, password }: Options) {
-  console.log('Trying to login...');
+  console.log('Trying to login…');
   await page.goto(path.join(foundryBaseURL, 'admin'), { waitUntil: 'load' });
   await page.fill('[name="username"]', username);
   await page.fill('[name="password"]', password);
@@ -32,7 +32,7 @@ async function login(page: Page, { username, password }: Options) {
 }
 
 async function updatePackage(page: Page, options: Options) {
-  console.log('Trying to update the package...');
+  console.log('Trying to update the package…');
   await page.goto(path.join(foundryBaseURL, `admin/packages/package/${options.packageID}/change/`));
 
   const id = await page.locator('tr.dynamic-versions:not(.has_original)').evaluate((e) => e.id);
@@ -49,6 +49,7 @@ async function updatePackage(page: Page, options: Options) {
   }
 
   if (options.deleteObsoleteVersions) {
+    console.log(`Marking obsolete versions for deletion…`);
     await checkDeleteCheckboxes(page, options);
   }
 
@@ -84,6 +85,8 @@ async function checkDeleteCheckboxes(page: Page, { verifiedCoreVersion }: Option
       verifiedCoreVersion,
     );
   for (const versionId of versionIds) {
+    const version = await page.inputValue(`#id_${versionId}-version`);
     await page.click(`#id_${versionId}-DELETE`);
+    console.log(`Marked version ${version} for deletion.`);
   }
 }
