@@ -1,9 +1,15 @@
+<!--
+SPDX-FileCopyrightText: 2022 Johannes Loher
+
+SPDX-License-Identifier: MIT
+-->
+
 # Foundry Publish
 
 [![Checks](https://github.com/ghost-fvtt/foundry-publish/workflows/Checks/badge.svg)](https://github.com/ghost-fvtt/foundry-publish/actions)
 [![npm downloads](https://img.shields.io/npm/dm/@ghost-fvtt/foundry-publish?color=orange&logo=npm)](https://www.npmjs.com/package/@ghost-fvtt/foundry-publish)
 [![Docker pulls](https://img.shields.io/docker/pulls/johannesloher/foundry-publish?logo=docker)](https://hub.docker.com/r/johannesloher/foundry-publish)
-![Repository License](https://img.shields.io/github/license/ghost-fvtt/foundry-publish)
+[![REUSE status](https://api.reuse.software/badge/github.com/ghost-fvtt/foundry-publish)](https://api.reuse.software/info/github.com/ghost-fvtt/foundry-publish)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-ghostfvtt-00B9FE?logo=kofi)](https://ko-fi.com/ghostfvtt)
 
 Foundry Publish is a CLI tool that developers can use to add new versions of
@@ -96,8 +102,9 @@ report them in the [issue tracker].
 
 ## Licensing
 
-This software project is licensed under the MIT License, a copy of which can be
-found under [LICENSE](./LICENSE).
+This project uses [REUSE] to specify the used licenses. Currently, everything is
+licensed under the [MIT] license. More information (including the copyright
+holders) can be found in the individual files.
 
 ## Acknowledgment
 
@@ -107,5 +114,7 @@ for the great work!
 [Foundry Virtual Tabletop]: https://foundryvtt.com
 [Package Administration]: http://foundryvtt.com/admin
 [issue tracker]: https://github.com/ghost-fvtt/foundry-publish/issues
+[REUSE]: https://reuse.software/
+[MIT]: LICENSES/MIT.txt
 [eXaminator]: https://github.com/eXaminator
 [foundry-auto-release]: https://github.com/eXaminator/foundry-auto-release
