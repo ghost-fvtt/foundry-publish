@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 Johannes Loher
+//
+// SPDX-License-Identifier: MIT
+
 import { chain, orElseW } from 'fp-ts/lib/Either.js';
 import { identity, pipe } from 'fp-ts/lib/function.js';
 import * as t from 'io-ts';

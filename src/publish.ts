@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 Johannes Loher
+//
+// SPDX-License-Identifier: MIT
+
 import path from 'node:path';
 import { URLSearchParams } from 'node:url';
 import { chromium, Page } from 'playwright-chromium';

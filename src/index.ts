@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+
+// SPDX-FileCopyrightText: 2022 Johannes Loher
+//
+// SPDX-License-Identifier: MIT
+
 import { Command } from 'commander';
 import { CLIOptions, processOptions, validateOptions } from './options.js';
 import { publish } from './publish.js';

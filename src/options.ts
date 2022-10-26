@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 Johannes Loher
+//
+// SPDX-License-Identifier: MIT
+
 import type { Command } from 'commander';
 import { chain, getOrElseW, tryCatch } from 'fp-ts/lib/Either.js';
 import { pipe } from 'fp-ts/lib/function.js';

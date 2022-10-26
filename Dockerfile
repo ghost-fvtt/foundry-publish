@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Johannes Loher
+#
+# SPDX-License-Identifier: MIT
+
 FROM node:lts AS builder
 WORKDIR /app
 COPY package*.json ./
