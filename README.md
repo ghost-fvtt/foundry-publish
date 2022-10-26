@@ -53,10 +53,16 @@ Additionally, a couple of options can also be read from a manifest file.
 
 In order to build this project, recent versions of `node` and `npm` are
 required. We recommend using the latest lts version of `node`. If you use `nvm`
-to manage your `node` versions, you can simply run
+of `fnm` to manage your `node` versions, you can simply run
 
 ```
 nvm install
+```
+
+or
+
+```
+fnm install
 ```
 
 in the project's root directory.
