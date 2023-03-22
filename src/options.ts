@@ -36,10 +36,10 @@ const requiredOptionKeys = [
   'password',
 ] as const;
 
-export type Options = { [Key in typeof requiredOptionKeys[number]]: string } & {
-  [Key in typeof optionalStringOptionKeys[number]]?: string;
+export type Options = { [Key in (typeof requiredOptionKeys)[number]]: string } & {
+  [Key in (typeof optionalStringOptionKeys)[number]]?: string;
 } & {
-  [Key in typeof optionalBooleanOptionKeys[number]]?: boolean;
+  [Key in (typeof optionalBooleanOptionKeys)[number]]?: boolean;
 };
 
 export function processOptions(cliOptions: CLIOptions): Partial<Options> {
