@@ -5,7 +5,7 @@
 // SPDX-License-Identifier: MIT
 
 import { Command } from 'commander';
-import { CLIOptions, processOptions, validateOptions } from './options.js';
+import { type CLIOptions, processOptions, validateOptions } from './options.js';
 import { publish } from './publish.js';
 
 import { version } from './utils/version.js';
