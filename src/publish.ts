@@ -4,7 +4,7 @@
 
 import path from 'node:path';
 import { URLSearchParams } from 'node:url';
-import { chromium, Page } from 'playwright-chromium';
+import { chromium, type Page } from 'playwright-chromium';
 import type { Options } from './options.js';
 
 const foundryBaseURL = 'https://foundryvtt.com/';
