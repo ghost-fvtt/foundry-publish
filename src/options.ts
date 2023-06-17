@@ -104,7 +104,7 @@ export function validateOptions(options: Partial<Options>, program: Command): as
   for (const optionKey of requiredOptionKeys) {
     if (options[optionKey] === undefined) {
       console.error(`Missing option ${optionKey}.`);
-      program.help();
+      program.help({ error: true });
     }
   }
 }
