@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.3](https://github.com/ghost-fvtt/foundry-publish/compare/v2.2.2...v2.2.3) (2023-06-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency commander to v10 ([9e4bff9](https://github.com/ghost-fvtt/foundry-publish/commit/9e4bff987e01ba52a1fefa6abb8b3ecf5d6250cd))
+* **deps:** update dependency commander to v11 ([e7c7eee](https://github.com/ghost-fvtt/foundry-publish/commit/e7c7eee029772de76233016596da09c28d38a97b))
+* **deps:** update dependency fs-extra to v11 ([d164126](https://github.com/ghost-fvtt/foundry-publish/commit/d164126c270195d713ed9c67fce4de07e0f18811))
+* **deps:** update dependency playwright-chromium to v1.35.0 ([a04b52b](https://github.com/ghost-fvtt/foundry-publish/commit/a04b52bba8a38b19eac7f3fb68a9c8f08d1cda83))
+* **deps:** update dependency playwright-chromium to v1.35.1 ([89f9110](https://github.com/ghost-fvtt/foundry-publish/commit/89f9110a9cf46bc33064ea0d83d7af7fc57d496b))
+* exit with error status if option validations fails ([4d20ba2](https://github.com/ghost-fvtt/foundry-publish/commit/4d20ba2255397c04f6c44dc9037b3cefd9b693d1))
+
 ### [2.2.2](https://github.com/ghost-fvtt/foundry-publish/compare/v2.2.1...v2.2.2) (2022-10-26)
 
 ### [2.2.1](https://github.com/ghost-fvtt/foundry-publish/compare/v2.2.0...v2.2.1) (2022-09-11)
