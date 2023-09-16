@@ -20,6 +20,7 @@ program
     'Delete obsolete versions, i.e., all versions with the same verified core version as the version being published',
   )
   .option('--dryRun', 'Just perform a dry run instead of actually publishing the package')
+  .option('--headed', 'Run in headed mode, to be able to see the browser interaction')
   .option('--manifestURL <url>', 'The URL of the manifest of the package version being published')
   .option('--manifestPath <path>', 'A path to a manifest file to read information from')
   .option(
