@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/ghost-fvtt/foundry-publish/compare/v2.2.4...v2.3.0) (2023-09-16)
+
+
+### Features
+
+* add option ro run in headed mode ([99bd831](https://github.com/ghost-fvtt/foundry-publish/commit/99bd831a2896056252d357a126a6920c34cb4172))
+* check for errors after submitting ([f738e0e](https://github.com/ghost-fvtt/foundry-publish/commit/f738e0e4e42ac3857b1cadd281680c086ab2b3ae))
+
+
+### Bug Fixes
+
+* **deps:** update dependency fp-ts to v2.16.1 ([7f26db1](https://github.com/ghost-fvtt/foundry-publish/commit/7f26db1cfa58cd2af24f372ce8ff6c2622dd9529))
+* **deps:** update dependency playwright-chromium to v1.36.0 ([fab8ccb](https://github.com/ghost-fvtt/foundry-publish/commit/fab8ccb4f258cb4f7cc313868add9d8def65bee4))
+* **deps:** update dependency playwright-chromium to v1.36.1 ([85f1e1c](https://github.com/ghost-fvtt/foundry-publish/commit/85f1e1c77f78c79cfa973b222196c3db9fec81fc))
+* **deps:** update dependency playwright-chromium to v1.36.2 ([3d562ae](https://github.com/ghost-fvtt/foundry-publish/commit/3d562aecee67b1a858dc7b8489cdfa1cee587b64))
+* **deps:** update dependency playwright-chromium to v1.37.0 ([dd770e4](https://github.com/ghost-fvtt/foundry-publish/commit/dd770e4ed29e47cbc0f943e20edc8b23e7830c7a))
+* **deps:** update dependency playwright-chromium to v1.37.1 ([a9c357c](https://github.com/ghost-fvtt/foundry-publish/commit/a9c357c77e9ab864d5b5464d5103828fd6a28384))
+* **deps:** update dependency playwright-chromium to v1.38.0 ([02d3b4e](https://github.com/ghost-fvtt/foundry-publish/commit/02d3b4e620173b4146fd2f21546ded626c593d57))
+
 ### [2.2.4](https://github.com/ghost-fvtt/foundry-publish/compare/v2.2.3...v2.2.4) (2023-07-12)
 
 ### [2.2.3](https://github.com/ghost-fvtt/foundry-publish/compare/v2.2.2...v2.2.3) (2023-06-17)
