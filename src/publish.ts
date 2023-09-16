@@ -15,7 +15,7 @@ export async function publish(options: Options): Promise<void> {
   } else {
     console.log(`Publishing Foundry VTT package with id '${options.packageID}'.`);
   }
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({ headless: !options.headed });
   try {
     const page = await browser.newPage();
     await login(page, options);
