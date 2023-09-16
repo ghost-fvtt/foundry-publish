@@ -37,7 +37,7 @@ async function login(page: Page, { username, password }: Options) {
 
 async function updatePackage(page: Page, options: Options) {
   console.log('Trying to update the package…');
-  await page.goto(path.join(foundryBaseURL, `admin/packages/package/${options.packageID}/change/`));
+  await page.goto(getPackageURL(options));
 
   const id = await page.locator('tr.dynamic-versions:not(.has_original)').evaluate((e) => e.id);
 
@@ -67,10 +67,15 @@ async function updatePackage(page: Page, options: Options) {
 
   const promises: Promise<unknown>[] = [];
   if (!options.dryRun) {
-    promises.push(page.waitForNavigation({ waitUntil: 'load' }));
+    promises.push(page.waitForURL(getPackageURL(options)));
   }
   promises.push(page.click('[name="_continue"]'));
   await Promise.all(promises);
+
+  const errors = await page.locator('ul.errorlist li').evaluateAll((li) => li.map((element) => element.textContent));
+  if (errors.length > 0) {
+    throw new Error(`Errors while updating package:\n${errors.join('\n')}`);
+  }
 
   console.log('Package updated successfully.');
 }
@@ -93,4 +98,8 @@ async function checkDeleteCheckboxes(page: Page, { verifiedCoreVersion }: Option
     await page.click(`#id_${versionId}-DELETE`);
     console.log(`Marked version ${version} for deletion.`);
   }
+}
+
+function getPackageURL(options: Options): string {
+  return path.join(foundryBaseURL, `admin/packages/package/${options.packageID}/change/`);
 }
