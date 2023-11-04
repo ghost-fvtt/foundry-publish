@@ -12,7 +12,7 @@ module.exports = {
     extraFileExtensions: ['.cjs'],
   },
 
-  extends: ['plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
+  extends: ['plugin:@typescript-eslint/recommended', 'prettier'],
 
   plugins: ['@typescript-eslint'],
 };

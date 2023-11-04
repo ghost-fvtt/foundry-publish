@@ -10,9 +10,12 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "lint": "eslint --ext .ts,.js,.cjs .",
-    "lint:fix": "eslint --ext .ts,.js,.cjs --fix .",
-    "format": "prettier --write './**/*.(ts|js|cjs|json|yml)'",
+    "lint": "npm run eslint",
+    "lint:fix": "npm run eslint -- --fix",
+    "eslint": "eslint --ext .ts,.js,.cjs ",
+    "format": "npm run prettier -- --write",
+    "format:check": "npm run prettier -- --check",
+    "prettier": "prettier './**/*.(ts|js|cjs|mjs|json|scss|yml|yaml)'",
     "prepare": "husky install",
     "postinstall": "npx playwright install chromium",
     "clean": "rimraf dist"
@@ -56,10 +59,9 @@
     "commitlint": "18.2.0",
     "eslint": "8.53.0",
     "eslint-config-prettier": "9.0.0",
-    "eslint-plugin-prettier": "4.2.1",
     "husky": "8.0.3",
     "lint-staged": "15.0.2",
-    "prettier": "2.8.8",
+    "prettier": "3.0.3",
     "rimraf": "5.0.5",
     "standard-version": "9.5.0",
     "typescript": "5.2.2"

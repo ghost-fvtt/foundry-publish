@@ -44,6 +44,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Format Check
+        run: npm run format:check
+
       - name: REUSE Compliance Check
         uses: fsfe/reuse-action@v2
 
