@@ -1,6 +1,6 @@
 {
   "name": "@ghost-fvtt/foundry-publish",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "A tool to publish packages for Foundry Virtual Tabletop",
   "main": "./dist/index.js",
   "bin": {

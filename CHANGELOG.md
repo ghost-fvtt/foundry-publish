@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/ghost-fvtt/foundry-publish/compare/v2.3.0...v2.4.0) (2023-11-05)
+
+
+### Features
+
+* support the new package administration interface ([759a3bd](https://github.com/ghost-fvtt/foundry-publish/commit/759a3bde760c52b8644662da4b4abbc010218b06))
+
+
+### Bug Fixes
+
+* **deps:** update dependency commander to v11.1.0 ([a06b95a](https://github.com/ghost-fvtt/foundry-publish/commit/a06b95ab555a9cd7c90b96f2e0f4f78bff4b8dae))
+* **deps:** update dependency playwright-chromium to v1.38.1 ([0dc7d9d](https://github.com/ghost-fvtt/foundry-publish/commit/0dc7d9d44cf581555e0f2b114b071a63c7f20cd6))
+* **deps:** update dependency playwright-chromium to v1.39.0 ([ceba9c8](https://github.com/ghost-fvtt/foundry-publish/commit/ceba9c827a2a37923027ce1023d37e5813facb80))
+
 ## [2.3.0](https://github.com/ghost-fvtt/foundry-publish/compare/v2.2.4...v2.3.0) (2023-09-16)
 
 
