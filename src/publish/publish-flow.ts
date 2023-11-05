@@ -3,7 +3,10 @@
 // SPDX-License-Identifier: MIT
 
 import path from 'node:path';
+
+import { expect } from '@playwright/test';
 import { chromium, type Dialog, type Page } from 'playwright-chromium';
+
 import type { Options } from '../options';
 
 const foundryBaseURL = 'https://foundryvtt.com/';
@@ -34,7 +37,7 @@ async function login(page: Page, { username, password }: Options) {
   await page.getByPlaceholder('Username').fill(username);
   await page.getByPlaceholder('Password').fill(password);
   await page.getByRole('button', { name: 'Log In' }).click();
-  await page.getByText(`You are now logged in as ${username}!`).isVisible();
+  await expect(page.getByText(`You are now logged in as ${username}!`)).toBeVisible();
   console.log('Login successful.');
 }
 
@@ -68,8 +71,17 @@ async function publishPackage(page: Page, options: Options) {
   await page.locator('#save').click();
   await page.waitForURL(getPackageURL(options));
 
+  const savePackageErrorText = 'Could not save package. Please correct errors below.';
+  if (!options.dryRun) {
+    await expect(
+      page.getByText(/Package .+ was saved successfully/).or(page.getByText(savePackageErrorText)),
+    ).toBeVisible();
+  }
+  const failedToSave = await page.getByText(savePackageErrorText).isVisible();
+
   const errors = await page.locator('ul.errorlist li').evaluateAll((li) => li.map((element) => element.textContent));
-  if (errors.length > 0) {
+
+  if (failedToSave || errors.length > 0) {
     throw new Error(`Errors while publishing package:\n${errors.join('\n')}`);
   }
 
@@ -93,13 +105,15 @@ async function deleteObsoleteVersions(page: Page, options: Options) {
             .map((e) => e.id),
         options,
       );
-    console.log(versionsToDelete);
 
     const accept = (dialog: Dialog) => dialog.accept();
     page.on('dialog', accept);
     for (const version of versionsToDelete) {
       console.log(`Deleting version ${version}…`);
       await page.locator(`[id="${version}"]`).locator('button[name=delete-version]').click();
+      if (!options.dryRun) {
+        await expect(page.getByText(/Package .+ was saved successfully/)).toBeVisible();
+      }
     }
     page.off('dialog', accept);
     console.log('Obsolete versions deleted successfully.');
