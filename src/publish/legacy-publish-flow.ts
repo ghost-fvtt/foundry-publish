@@ -5,7 +5,7 @@
 import path from 'node:path';
 import { URLSearchParams } from 'node:url';
 import { chromium, type Page } from 'playwright-chromium';
-import type { Options } from './options.js';
+import type { Options } from '../options.js';
 
 const foundryBaseURL = 'https://foundryvtt.com/';
 
@@ -53,7 +53,7 @@ async function updatePackage(page: Page, options: Options) {
   }
 
   if (options.deleteObsoleteVersions) {
-    console.log(`Marking obsolete versions for deletion…`);
+    console.log('Marking obsolete versions for deletion…');
     await checkDeleteCheckboxes(page, options);
   }
 
