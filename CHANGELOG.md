@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.1](https://github.com/ghost-fvtt/foundry-publish/compare/v2.4.0...v2.4.1) (2023-11-05)
+
+
+### Bug Fixes
+
+* improve error checking in new flow ([1ea67b8](https://github.com/ghost-fvtt/foundry-publish/commit/1ea67b860abdb512382624c10e48347c470c81db))
+
 ## [2.4.0](https://github.com/ghost-fvtt/foundry-publish/compare/v2.3.0...v2.4.0) (2023-11-05)
 
 
