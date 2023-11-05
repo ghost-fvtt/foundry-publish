@@ -30,6 +30,7 @@ const Compatibility = t.partial(
 
 export const Manifest = t.partial(
   {
+    id: t.string,
     changelog: t.string,
     version: Version,
     minimumCoreVersion: Version,

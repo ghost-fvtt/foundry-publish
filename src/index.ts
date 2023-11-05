@@ -6,7 +6,7 @@
 
 import { Command } from 'commander';
 import { type CLIOptions, processOptions, validateOptions } from './options.js';
-import { publish } from './publish.js';
+import { publish } from './publish/publish.js';
 
 import { version } from './utils/version.js';
 
@@ -33,6 +33,10 @@ program
   )
   .option('--packageID <id>', 'The numeric ID of the package')
   .option('--packageVersion <version>', 'The version of the package')
+  .option(
+    '--useNewPackageAdministrationInterface',
+    'Use the new package administration interface to publish the version',
+  )
   .option(
     '--username <username>',
     'The username of the account for accessing the FoundryVTT administration page (you may need to use the email address)',
