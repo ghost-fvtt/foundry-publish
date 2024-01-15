@@ -37,7 +37,8 @@ async function login(page: Page, { username, password }: Options) {
   await page.getByPlaceholder('Username').fill(username);
   await page.getByPlaceholder('Password').fill(password);
   await page.getByRole('button', { name: 'Log In' }).click();
-  await expect(page.getByText(`You are now logged in as ${username}`)).toBeVisible();
+  // the login message disappears after 3 seconds.
+  await expect(page.getByText(`You are now logged in as ${username}!`)).toBeVisible({ timeout: 2500 });
   console.log('Login successful.');
 }
 
