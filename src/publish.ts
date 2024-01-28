@@ -7,7 +7,7 @@ import path from 'node:path';
 import { expect } from '@playwright/test';
 import { chromium, type Dialog, type Page } from 'playwright-chromium';
 
-import type { Options } from '../options';
+import type { Options } from './options';
 
 const foundryBaseURL = 'https://foundryvtt.com/';
 

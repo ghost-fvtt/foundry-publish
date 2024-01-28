@@ -22,16 +22,10 @@ export interface CLIOptions {
   minimumCoreVersion?: string;
   packageID?: string;
   packageVersion?: string;
-  useNewPackageAdministrationInterface?: boolean;
   username?: string;
 }
 const optionalStringOptionKeys = ['changelogURL', 'maximumCoreVersion'] as const;
-const optionalBooleanOptionKeys = [
-  'deleteObsoleteVersions',
-  'dryRun',
-  'headed',
-  'useNewPackageAdministrationInterface',
-] as const;
+const optionalBooleanOptionKeys = ['deleteObsoleteVersions', 'dryRun', 'headed'] as const;
 
 const requiredOptionKeys = [
   'verifiedCoreVersion',
@@ -74,7 +68,7 @@ function mergeWithManifestIfNeeded(options: CLIOptions & Partial<Options>): Part
       minimumCoreVersion: manifest?.compatibility?.minimum ?? manifest?.minimumCoreVersion,
       packageVersion: manifest?.version,
       verifiedCoreVersion: manifest?.compatibility?.verified ?? manifest?.compatibleCoreVersion,
-      packageID: options.useNewPackageAdministrationInterface ? manifest?.id : undefined,
+      packageID: manifest?.id,
       ...remainingOptions,
     });
   }
@@ -97,10 +91,6 @@ function mergeWithEnvironmentVariables(options: CLIOptions): CLIOptions & Partia
     packageID: process.env.FVTT_PACKAGE_ID,
     packageVersion: process.env.FVTT_PACKAGE_VERSION,
     password: process.env.FVTT_PASSWORD,
-    useNewPackageAdministrationInterface:
-      process.env.FVTT_USE_NEW_PACKAGE_ADMINISTRATION_INTERFACE !== undefined
-        ? process.env.FVTT_USE_NEW_PACKAGE_ADMINISTRATION_INTERFACE === 'true'
-        : undefined,
     username: process.env.FVTT_USERNAME,
     verifiedCoreVersion: process.env.FVTT_VERIFIED_CORE_VERSION ?? process.env.FVTT_COMPATIBLE_CORE_VERSION,
     ...options,
