@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/ghost-fvtt/foundry-publish/compare/v2.4.1...v3.0.0) (2024-01-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* The legacy flow that is not supported by foundryvtt.com anymore has been removed.
+The new flow is now used by default.
+
+### Features
+
+* remove legacy flow that's not supported anymore ([367981e](https://github.com/ghost-fvtt/foundry-publish/commit/367981e857c97d11034ce8ecbf4088b95499bf75))
+
+
+### Bug Fixes
+
+* **deps:** update dependency fp-ts to v2.16.2 ([11f3619](https://github.com/ghost-fvtt/foundry-publish/commit/11f36193d79a1a8c52fa85b61dc6f0630e88aa5b))
+* **deps:** update dependency fs-extra to v11.2.0 ([1f47cd5](https://github.com/ghost-fvtt/foundry-publish/commit/1f47cd5268ccf38fff40bfd831dddd9d8939d1ab))
+* **deps:** update dependency io-ts to v2.2.21 ([525aaad](https://github.com/ghost-fvtt/foundry-publish/commit/525aaad355f7d810cd7155d430f6c91712f3aa62))
+* **deps:** update playwright monorepo to v1.40.0 ([a985e28](https://github.com/ghost-fvtt/foundry-publish/commit/a985e28cefb49a3bbf4aad1725fe590562c9aeae))
+* **deps:** update playwright monorepo to v1.40.1 ([88a9168](https://github.com/ghost-fvtt/foundry-publish/commit/88a916808f9f193bb7c542df7e00743165561e22))
+* **deps:** update playwright monorepo to v1.41.0 ([e4520d1](https://github.com/ghost-fvtt/foundry-publish/commit/e4520d1c75c9cc83f9f94514918d19d2900a2cf0))
+* **deps:** update playwright monorepo to v1.41.1 ([63327c3](https://github.com/ghost-fvtt/foundry-publish/commit/63327c362e3a1bbfe617dfbd0224bfd77c639731))
+* fix login ([fc6cf2f](https://github.com/ghost-fvtt/foundry-publish/commit/fc6cf2f0cc436f901a8bc44eba254f700766b9d0))
+
 ### [2.4.1](https://github.com/ghost-fvtt/foundry-publish/compare/v2.4.0...v2.4.1) (2023-11-05)
 
 
