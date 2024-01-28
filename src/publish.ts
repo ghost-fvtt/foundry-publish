@@ -7,7 +7,7 @@ import path from 'node:path';
 import { expect } from '@playwright/test';
 import { chromium, type Dialog, type Page } from 'playwright-chromium';
 
-import type { Options } from '../options';
+import type { Options } from './options';
 
 const foundryBaseURL = 'https://foundryvtt.com/';
 
@@ -37,7 +37,7 @@ async function login(page: Page, { username, password }: Options) {
   await page.getByPlaceholder('Username').fill(username);
   await page.getByPlaceholder('Password').fill(password);
   await page.getByRole('button', { name: 'Log In' }).click();
-  await expect(page.getByText(`You are now logged in as ${username}!`)).toBeVisible();
+  await expect(page.getByText(`You are now logged in as ${username}`)).toBeVisible();
   console.log('Login successful.');
 }
 

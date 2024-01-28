@@ -30,16 +30,6 @@ npm install -g @ghost-fvtt/foundry-publish
 foundry-publish [options]
 ```
 
-**Note**: On November 11th, [Foundry Staff announced that they are changing how packages are managed (including publishing versions)](https://discord.com/channels/170995199584108546/596076404618166434/1169350879334379611).
-**From December 6th, the old way will stop working**. Foundry Publish already supports the new package administration
-interface, but for backwards compatibility, you need to opt into using it. You can do so by providing the
-`--useNewPackageAdministrationInterface` command line flag, or setting the
-`FVTT_USE_NEW_PACKAGE_ADMINISTRATION_INTERFACE` environment variable to `true`. When using the new flow, the package ID
-needs to be the `id` from the manifest, instead of the numeric ID, which was needed for the legacy flow. For more
-details, see the explanation of the options below.
-
-As soon as the new flow has been battle tested, it will become the default in a new major version of Foundry Publish.
-
 ### Options
 
 In order to use Foundry Publish, you need to provide several parameters. They
@@ -58,10 +48,9 @@ Additionally, a couple of options can also be read from a manifest file.
 | `--manifestPath`                                   | `FVTT_MANIFEST_PATH`                                         |                                                   | A path to a manifest file to read information from                                                                    | No       |
 | `--maximumCoreVersion`                             | `FVTT_MAXIMUM_CORE_VERSION`                                  | `compatibility.maximum`,                          | The maximum version of the core Foundry software which is allowed to use the package                                  | No       |
 | `--minimumCoreVersion`                             | `FVTT_MINIMUM_CORE_VERSION`                                  | `compatibility.minimum`, `minimumCoreVersion`     | The minimum version of the core Foundry software which is required to use the package                                 | Yes      |
-| `--packageID`                                      | `FVTT_PACKAGE_ID`                                            | `id` (only read when using the new flow)          | The ID of the package—use the numeric ID for the legacy flow and the `id` from the manifest for the new flow          | Yes      |
+| `--packageID`                                      | `FVTT_PACKAGE_ID`                                            | `id`                                              | The ID of the package—the `id` from the manifest                                                                      | Yes      |
 | `--packageVersion`                                 | `FVTT_PACKAGE_VERSION`                                       | `version`                                         | The version of the package                                                                                            | Yes      |
 |                                                    | `FVTT_PASSWORD`                                              |                                                   | The password of the account for accessing the Foundry VTT administration page                                         | Yes      |
-| `--useNewPackageAdministrationInterface`           | `FVTT_USE_NEW_PACKAGE_ADMINISTRATION_INTERFACE`              |                                                   | Use the new flow for publishing a package version (requires the package id to be the `id` from the manifest)          | No       |
 | `--username`                                       | `FVTT_USERNAME`                                              |                                                   | The username of the account for accessing the Foundry VTT administration page (you may need to use the email address) | Yes      |
 | `--verifiedCoreVersion`, `--compatibleCoreVersion` | `FVTT_VERIFIED_CORE_VERSION`, `FVTT_COMPATIBLE_CORE_VERSION` | `compatibility.verified`, `compatibleCoreVersion` | The maximum version of the core Foundry software for which compatibility of the package has been verified             | Yes      |
 
