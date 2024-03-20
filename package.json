@@ -64,7 +64,7 @@
     "prettier": "3.2.5",
     "rimraf": "5.0.5",
     "standard-version": "9.5.0",
-    "typescript": "5.4.2"
+    "typescript": "5.4.3"
   },
   "dependencies": {
     "@playwright/test": "^1.39.0",
