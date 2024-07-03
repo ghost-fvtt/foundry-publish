@@ -43,7 +43,7 @@ jobs:
         run: npm run format:check
 
       - name: REUSE Compliance Check
-        uses: fsfe/reuse-action@v3
+        uses: fsfe/reuse-action@v4
 
       - name: Build
         run: npm run build
