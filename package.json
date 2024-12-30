@@ -69,7 +69,7 @@
   "dependencies": {
     "@playwright/test": "^1.39.0",
     "chalk": "^5.3.0",
-    "commander": "^12.0.0",
+    "commander": "^13.0.0",
     "fp-ts": "^2.12.2",
     "fs-extra": "^11.0.0",
     "io-ts": "^2.2.16",
