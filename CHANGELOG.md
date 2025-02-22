@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/ghost-fvtt/foundry-publish/compare/v3.0.1...v4.0.0) (2025-02-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* * It’s not possible anymore to delete obsolete versions, the API unfortunately does not provide a
+  deletion mechanism
+* Instead of username and password, you now need to supply the package release token via
+  `FVTT_TOKEN`. See https://foundryvtt.com/article/package-release-api/ for more details about the
+  Package Release API
+* Since the package is now published via a simple HTTP request, there is no headed mode anymore
+
+### Features
+
+* use Package Release API ([55199e1](https://github.com/ghost-fvtt/foundry-publish/commit/55199e10de4bf62859c202b482199bf49c52d6c9))
+
 ### [3.0.1](https://github.com/ghost-fvtt/foundry-publish/compare/v3.0.0...v3.0.1) (2025-02-22)
 
 
