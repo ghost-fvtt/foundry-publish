@@ -68,10 +68,7 @@
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^13.0.0",
-    "fp-ts": "^2.12.2",
-    "fs-extra": "^11.0.0",
-    "io-ts": "^2.2.16",
-    "io-ts-types": "^0.5.16"
+    "zod": "^3.24.2"
   },
   "engines": {
     "node": "^20.6.1 || ^22.0.0",

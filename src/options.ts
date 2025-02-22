@@ -3,12 +3,9 @@
 // SPDX-License-Identifier: MIT
 
 import type { Command } from 'commander';
-import { chain, getOrElseW, tryCatch } from 'fp-ts/lib/Either.js';
-import { pipe } from 'fp-ts/lib/function.js';
 import { readFileSync } from 'fs';
-import { failure } from 'io-ts/lib/PathReporter.js';
 
-import { ManifestFromString } from './manifest.js';
+import { Manifest, ManifestFromString } from './manifest.js';
 
 export interface CLIOptions {
   changelogURL?: string;
@@ -44,16 +41,7 @@ export function processOptions(cliOptions: CLIOptions): Partial<Options> {
 function mergeWithManifestIfNeeded(options: CLIOptions & Partial<Options>): Partial<Options> {
   const { manifestPath, ...remainingOptions } = options;
   if (manifestPath !== undefined) {
-    const manifest = pipe(
-      tryCatch(
-        () => readFileSync(manifestPath).toString(),
-        (e) => [{ context: [], value: manifestPath, message: (e as Error).message }],
-      ),
-      chain(ManifestFromString.decode),
-      getOrElseW((es): void => {
-        console.warn(`${manifestPath} is not a valid manifest file, ignoring it.`, failure(es));
-      }),
-    );
+    const manifest = parseManifest(manifestPath);
 
     return deleteUndefinedKeys({
       changelogURL: manifest?.changelog,
@@ -83,6 +71,19 @@ function mergeWithEnvironmentVariables(options: CLIOptions): CLIOptions & Partia
     verifiedCoreVersion: process.env.FVTT_VERIFIED_CORE_VERSION ?? process.env.FVTT_COMPATIBLE_CORE_VERSION,
     ...options,
   });
+}
+
+function parseManifest(manifestPath: string): Manifest | undefined {
+  try {
+    const manifestContent = readFileSync(manifestPath).toString();
+    const { data, error, success } = ManifestFromString.safeParse(manifestContent);
+    if (!success) {
+      console.warn(`${manifestPath} is not a valid manifest file, ignoring it.`, error.format());
+    }
+    return data;
+  } catch (e) {
+    console.warn(`Could not read manifest file ${manifestPath}, ignoring it.`, e);
+  }
 }
 
 function deleteUndefinedKeys<T extends object>(t: T): Partial<T> {

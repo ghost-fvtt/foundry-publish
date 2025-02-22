@@ -2,9 +2,9 @@
 //
 // SPDX-License-Identifier: MIT
 
-import path from 'path';
-import fs from 'fs';
+import { resolve } from 'node:path';
+import { readFileSync } from 'node:fs';
 
 import { rootPath } from './file-utils.js';
 
-export const version: string = JSON.parse(fs.readFileSync(path.resolve(rootPath, 'package.json')).toString()).version;
+export const version: string = JSON.parse(readFileSync(resolve(rootPath, 'package.json')).toString()).version;
