@@ -12,12 +12,11 @@
     "watch": "tsc --watch",
     "lint": "npm run eslint",
     "lint:fix": "npm run eslint -- --fix",
-    "eslint": "eslint --ext .ts,.js,.cjs ",
+    "eslint": "eslint --ext .ts,.js,.cjs .",
     "format": "npm run prettier -- --write",
     "format:check": "npm run prettier -- --check",
     "prettier": "prettier './**/*.(ts|js|cjs|mjs|json|scss|yml|yaml)'",
     "prepare": "husky install",
-    "postinstall": "npx playwright install chromium",
     "clean": "rimraf dist"
   },
   "contributors": [
@@ -67,14 +66,12 @@
     "typescript": "5.7.3"
   },
   "dependencies": {
-    "@playwright/test": "^1.39.0",
     "chalk": "^5.3.0",
     "commander": "^13.0.0",
     "fp-ts": "^2.12.2",
     "fs-extra": "^11.0.0",
     "io-ts": "^2.2.16",
-    "io-ts-types": "^0.5.16",
-    "playwright-chromium": "^1.18.1"
+    "io-ts-types": "^0.5.16"
   },
   "engines": {
     "node": "^20.6.1 || ^22.0.0",

@@ -13,19 +13,14 @@ import { ManifestFromString } from './manifest.js';
 export interface CLIOptions {
   changelogURL?: string;
   verifiedCoreVersion?: string;
-  deleteObsoleteVersions?: boolean;
   dryRun?: boolean;
-  headed?: boolean;
   manifestURL?: string;
   manifestPath?: string;
   maximumCoreVersion?: string;
   minimumCoreVersion?: string;
   packageID?: string;
   packageVersion?: string;
-  username?: string;
 }
-const optionalStringOptionKeys = ['changelogURL', 'maximumCoreVersion'] as const;
-const optionalBooleanOptionKeys = ['deleteObsoleteVersions', 'dryRun', 'headed'] as const;
 
 const requiredOptionKeys = [
   'verifiedCoreVersion',
@@ -33,14 +28,13 @@ const requiredOptionKeys = [
   'minimumCoreVersion',
   'packageID',
   'packageVersion',
-  'username',
-  'password',
+  'token',
 ] as const;
 
 export type Options = { [Key in (typeof requiredOptionKeys)[number]]: string } & {
-  [Key in (typeof optionalStringOptionKeys)[number]]?: string;
-} & {
-  [Key in (typeof optionalBooleanOptionKeys)[number]]?: boolean;
+  changelogURL?: string;
+  maximumCoreVersion?: string;
+  dryRun?: boolean;
 };
 
 export function processOptions(cliOptions: CLIOptions): Partial<Options> {
@@ -78,20 +72,14 @@ function mergeWithManifestIfNeeded(options: CLIOptions & Partial<Options>): Part
 function mergeWithEnvironmentVariables(options: CLIOptions): CLIOptions & Partial<Options> {
   return deleteUndefinedKeys({
     changelogURL: process.env.FVTT_CHANGELOG_URL,
-    deleteObsoleteVersions:
-      process.env.FVTT_DELETE_OBSOLETE_VERSIONS !== undefined
-        ? process.env.FVTT_DELETE_OBSOLETE_VERSIONS === 'true'
-        : undefined,
     dryRun: process.env.FVTT_DRY_RUN !== undefined ? process.env.FVTT_DRY_RUN === 'true' : undefined,
-    headed: process.env.FVTT_HEADED !== undefined ? process.env.FVTT_HEADED === 'true' : undefined,
     manifestURL: process.env.FVTT_MANIFEST_URL,
     manifestPath: process.env.FVTT_MANIFEST_PATH,
     maximumCoreVersion: process.env.FVTT_MAXIMUM_CORE_VERSION,
     minimumCoreVersion: process.env.FVTT_MINIMUM_CORE_VERSION,
     packageID: process.env.FVTT_PACKAGE_ID,
     packageVersion: process.env.FVTT_PACKAGE_VERSION,
-    password: process.env.FVTT_PASSWORD,
-    username: process.env.FVTT_USERNAME,
+    token: process.env.FVTT_TOKEN,
     verifiedCoreVersion: process.env.FVTT_VERIFIED_CORE_VERSION ?? process.env.FVTT_COMPATIBLE_CORE_VERSION,
     ...options,
   });
