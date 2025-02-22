@@ -2,53 +2,28 @@
 //
 // SPDX-License-Identifier: MIT
 
-import { chain, orElseW } from 'fp-ts/lib/Either.js';
-import { identity, pipe } from 'fp-ts/lib/function.js';
-import * as t from 'io-ts';
-import { JsonFromString } from 'io-ts-types';
+import { z } from 'zod';
 
-const Version = new t.Type<string>(
-  'Version',
-  t.string.is,
-  (u, c) =>
-    pipe(
-      t.string.validate(u, c),
-      orElseW(() => t.number.validate(u, c)),
-      chain((sn) => t.success(sn.toString())),
-    ),
-  identity,
-);
+const Version = z.string().or(z.number().transform((v) => v.toString()));
 
-const Compatibility = t.partial(
-  {
-    minimum: Version,
-    verified: Version,
-    maximum: Version,
-  },
-  'Compatibility',
-);
+const Compatibility = z.object({
+  minimum: Version.optional(),
+  verified: Version.optional(),
+  maximum: Version.optional(),
+});
 
-export const Manifest = t.partial(
-  {
-    id: t.string,
-    changelog: t.string,
-    version: Version,
-    minimumCoreVersion: Version,
-    compatibleCoreVersion: Version,
-    compatibility: Compatibility,
-    manifest: t.string,
-  },
-  'Manifest',
-);
-export type Manifest = t.TypeOf<typeof Manifest>;
+export const Manifest = z.object({
+  id: z.string().optional(),
+  changelog: z.string().optional(),
+  version: Version.optional(),
+  minimumCoreVersion: Version.optional(),
+  compatibleCoreVersion: Version.optional(),
+  compatibility: Compatibility.optional(),
+  manifest: z.string().optional(),
+});
+export type Manifest = z.infer<typeof Manifest>;
 
-export const ManifestFromString = new t.Type<Manifest, string, string>(
-  'ManifestFromString',
-  Manifest.is,
-  (s, c) =>
-    pipe(
-      JsonFromString.validate(s, c),
-      chain((j) => Manifest.validate(j, c)),
-    ),
-  (m) => JSON.stringify(m),
-);
+export const ManifestFromString = z
+  .string()
+  .transform((v) => JSON.parse(v))
+  .pipe(Manifest);

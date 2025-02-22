@@ -12,8 +12,8 @@ SPDX-License-Identifier: MIT
 [![REUSE status](https://api.reuse.software/badge/github.com/ghost-fvtt/foundry-publish)](https://api.reuse.software/info/github.com/ghost-fvtt/foundry-publish)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-ghostfvtt-00B9FE?logo=kofi)](https://ko-fi.com/ghostfvtt)
 
-Foundry Publish is a CLI tool that developers can use to add new versions of
-their packages for [Foundry Virtual Tabletop] to the [Package Administration].
+Foundry Publish is a CLI tool that developers can use to publish new versions of
+their packages for [Foundry Virtual Tabletop] via the [Package Release API].
 
 ## Usage
 
@@ -34,25 +34,22 @@ foundry-publish [options]
 
 In order to use Foundry Publish, you need to provide several parameters. They
 can be provided either as environment variables or as command line options, with
-one exception: For security reasons, the password required to authenticate with
-the [Package Administration] can _only_ be provided as environment variable.
+one exception: For security reasons, the token required to access the
+[Package Release API] can _only_ be provided as environment variable.
 Additionally, a couple of options can also be read from a manifest file.
 
-| Command Line Parameter                             | Environment Variable                                         | Manifest Property                                 | Description                                                                                                           | Required |
-| -------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------- |
-| `--changelogURL`                                   | `FVTT_CHANGELOG_URL`                                         | `changelog`                                       | The URL of the changelog of the package version being published                                                       | No       |
-| `--deleteObsoleteVersions`                         | `FVTT_DELETE_OBSOLETE_VERSIONS`                              |                                                   | Delete obsolete versions, i.e., all versions with the same compatible core version as the version being published     | No       |
-| `--dryRun`                                         | `FVTT_DRY_RUN`                                               |                                                   | Just perform a dry run instead of actually publishing the package                                                     | No       |
-| `--headed`                                         | `FVTT_HEADED`                                                |                                                   | Run in headed mode, to be able to see the browser interaction                                                         | No       |
-| `--manifestURL`                                    | `FVTT_MANIFEST_URL`                                          | `manifest`                                        | The URL of the manifest of the package version being published                                                        | Yes      |
-| `--manifestPath`                                   | `FVTT_MANIFEST_PATH`                                         |                                                   | A path to a manifest file to read information from                                                                    | No       |
-| `--maximumCoreVersion`                             | `FVTT_MAXIMUM_CORE_VERSION`                                  | `compatibility.maximum`,                          | The maximum version of the core Foundry software which is allowed to use the package                                  | No       |
-| `--minimumCoreVersion`                             | `FVTT_MINIMUM_CORE_VERSION`                                  | `compatibility.minimum`, `minimumCoreVersion`     | The minimum version of the core Foundry software which is required to use the package                                 | Yes      |
-| `--packageID`                                      | `FVTT_PACKAGE_ID`                                            | `id`                                              | The ID of the package—the `id` from the manifest                                                                      | Yes      |
-| `--packageVersion`                                 | `FVTT_PACKAGE_VERSION`                                       | `version`                                         | The version of the package                                                                                            | Yes      |
-|                                                    | `FVTT_PASSWORD`                                              |                                                   | The password of the account for accessing the Foundry VTT administration page                                         | Yes      |
-| `--username`                                       | `FVTT_USERNAME`                                              |                                                   | The username of the account for accessing the Foundry VTT administration page (you may need to use the email address) | Yes      |
-| `--verifiedCoreVersion`, `--compatibleCoreVersion` | `FVTT_VERIFIED_CORE_VERSION`, `FVTT_COMPATIBLE_CORE_VERSION` | `compatibility.verified`, `compatibleCoreVersion` | The maximum version of the core Foundry software for which compatibility of the package has been verified             | Yes      |
+| Command Line Parameter                             | Environment Variable                                         | Manifest Property                                 | Description                                                                                               | Required |
+| -------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------- |
+| `--changelogURL`                                   | `FVTT_CHANGELOG_URL`                                         | `changelog`                                       | The URL of the changelog of the package version being published                                           | No       |
+| `--dryRun`                                         | `FVTT_DRY_RUN`                                               |                                                   | Just perform a dry run instead of actually publishing the package                                         | No       |
+| `--manifestURL`                                    | `FVTT_MANIFEST_URL`                                          | `manifest`                                        | The URL of the manifest of the package version being published                                            | Yes      |
+| `--manifestPath`                                   | `FVTT_MANIFEST_PATH`                                         |                                                   | A path to a manifest file to read information from                                                        | No       |
+| `--maximumCoreVersion`                             | `FVTT_MAXIMUM_CORE_VERSION`                                  | `compatibility.maximum`,                          | The maximum version of the core Foundry software which is allowed to use the package                      | No       |
+| `--minimumCoreVersion`                             | `FVTT_MINIMUM_CORE_VERSION`                                  | `compatibility.minimum`, `minimumCoreVersion`     | The minimum version of the core Foundry software which is required to use the package                     | Yes      |
+| `--packageID`                                      | `FVTT_PACKAGE_ID`                                            | `id`                                              | The ID of the package—the `id` from the manifest                                                          | Yes      |
+| `--packageVersion`                                 | `FVTT_PACKAGE_VERSION`                                       | `version`                                         | The version of the package                                                                                | Yes      |
+|                                                    | `FVTT_TOKEN`                                                 |                                                   | The package release token for accessing the [Package Release API] for the package                         | Yes      |
+| `--verifiedCoreVersion`, `--compatibleCoreVersion` | `FVTT_VERIFIED_CORE_VERSION`, `FVTT_COMPATIBLE_CORE_VERSION` | `compatibility.verified`, `compatibleCoreVersion` | The maximum version of the core Foundry software for which compatibility of the package has been verified | Yes      |
 
 ## Development
 
@@ -113,7 +110,7 @@ This project is heavily based on [eXaminator]'s [foundry-auto-release]. Thanks
 for the great work!
 
 [Foundry Virtual Tabletop]: https://foundryvtt.com
-[Package Administration]: http://foundryvtt.com/admin
+[Package Release API]: https://foundryvtt.com/article/package-release-api
 [issue tracker]: https://github.com/ghost-fvtt/foundry-publish/issues
 [REUSE]: https://reuse.software/
 [MIT]: LICENSES/MIT.txt
