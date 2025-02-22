@@ -2,6 +2,8 @@
 //
 // SPDX-License-Identifier: MIT
 
+// @ts-check
+
 /**
  * @type {import("prettier").Config}
  */
