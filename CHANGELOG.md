@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/ghost-fvtt/foundry-publish/compare/v3.0.0...v3.0.1) (2025-02-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chalk to v5.4.0 ([#1048](https://github.com/ghost-fvtt/foundry-publish/issues/1048)) ([aa2526c](https://github.com/ghost-fvtt/foundry-publish/commit/aa2526c8e361f37286c79c4092be1546598197dc))
+* **deps:** update dependency chalk to v5.4.1 ([#1049](https://github.com/ghost-fvtt/foundry-publish/issues/1049)) ([f0cc992](https://github.com/ghost-fvtt/foundry-publish/commit/f0cc992f9405b4eafabe4df502cd59412fe30f52))
+* **deps:** update dependency commander to v12 ([ac11617](https://github.com/ghost-fvtt/foundry-publish/commit/ac1161775d23022101fed6c3c2c0544596013a47))
+* **deps:** update dependency commander to v12.1.0 ([6cc42ac](https://github.com/ghost-fvtt/foundry-publish/commit/6cc42acf224caf428c41db7671b9532b6136d385))
+* **deps:** update dependency commander to v13 ([#1054](https://github.com/ghost-fvtt/foundry-publish/issues/1054)) ([96cf5f7](https://github.com/ghost-fvtt/foundry-publish/commit/96cf5f71f931640e35566072f0b4ae04458aa36e))
+* **deps:** update dependency commander to v13.1.0 ([#1072](https://github.com/ghost-fvtt/foundry-publish/issues/1072)) ([ee7c395](https://github.com/ghost-fvtt/foundry-publish/commit/ee7c395d0ef96acb662283a8ccd8ab76e3f6f1a3))
+* **deps:** update dependency fp-ts to v2.16.3 ([56ee030](https://github.com/ghost-fvtt/foundry-publish/commit/56ee0306482436cf5dddd43d66b004c12f23900e))
+* **deps:** update dependency fp-ts to v2.16.4 ([ef4d217](https://github.com/ghost-fvtt/foundry-publish/commit/ef4d2170e307e8b00c04a8cbf4c01533d4e277c1))
+* **deps:** update dependency fp-ts to v2.16.5 ([66fd9b1](https://github.com/ghost-fvtt/foundry-publish/commit/66fd9b16be38df2f79ea37b4c237238dfed2a69f))
+* **deps:** update dependency fp-ts to v2.16.6 ([f144497](https://github.com/ghost-fvtt/foundry-publish/commit/f144497db1320c18052dd78b2598d91bb9756862))
+* **deps:** update dependency fp-ts to v2.16.7 ([2fed844](https://github.com/ghost-fvtt/foundry-publish/commit/2fed8443772c381b0bd1aa87887270b3b1ea12c4))
+* **deps:** update dependency fp-ts to v2.16.8 ([03d45d5](https://github.com/ghost-fvtt/foundry-publish/commit/03d45d5c62a85f94e18d53ec12dee5492d010dc6))
+* **deps:** update dependency fp-ts to v2.16.9 ([8761880](https://github.com/ghost-fvtt/foundry-publish/commit/8761880092c7227cbecacad4a1506ba497652e94))
+* **deps:** update dependency fs-extra to v11.3.0 ([#1066](https://github.com/ghost-fvtt/foundry-publish/issues/1066)) ([caf8a22](https://github.com/ghost-fvtt/foundry-publish/commit/caf8a229f543f9f1f4b6edfac80ad3c71ffb9902))
+* **deps:** update dependency io-ts to v2.2.22 ([#1042](https://github.com/ghost-fvtt/foundry-publish/issues/1042)) ([94d45d9](https://github.com/ghost-fvtt/foundry-publish/commit/94d45d941eec3e41cdd9e54822ad9641761edad0))
+* **deps:** update playwright monorepo to v1.41.2 ([7773b5a](https://github.com/ghost-fvtt/foundry-publish/commit/7773b5a11800c6e33c8235a3c1b1f8e82ac6b7b5))
+* **deps:** update playwright monorepo to v1.42.1 ([49f0ff6](https://github.com/ghost-fvtt/foundry-publish/commit/49f0ff62a02893127c911f05832c0506a0db5433))
+* **deps:** update playwright monorepo to v1.43.0 ([d697bfe](https://github.com/ghost-fvtt/foundry-publish/commit/d697bfecccef566f87c907193121aee271e450af))
+* **deps:** update playwright monorepo to v1.43.1 ([843787f](https://github.com/ghost-fvtt/foundry-publish/commit/843787f81bc413314dc814dbc4d4809e2f543c26))
+* **deps:** update playwright monorepo to v1.44.0 ([5a06c97](https://github.com/ghost-fvtt/foundry-publish/commit/5a06c97c17490037a26e0a0fc50c8bb8e0247ced))
+* **deps:** update playwright monorepo to v1.44.1 ([28ef997](https://github.com/ghost-fvtt/foundry-publish/commit/28ef997d23ad4dcf6a7122ed6ee1dbb423acafb8))
+* **deps:** update playwright monorepo to v1.45.0 ([44f4467](https://github.com/ghost-fvtt/foundry-publish/commit/44f4467ed4f1cd69eaeaea15ef79a96f2cd04a24))
+* **deps:** update playwright monorepo to v1.45.1 ([187e7e8](https://github.com/ghost-fvtt/foundry-publish/commit/187e7e890c987d42621a86757d54a862ced1bbee))
+* **deps:** update playwright monorepo to v1.45.2 ([defc977](https://github.com/ghost-fvtt/foundry-publish/commit/defc97776902c66d2765a08ab8fb95f24915fa56))
+* **deps:** update playwright monorepo to v1.45.3 ([74dc26c](https://github.com/ghost-fvtt/foundry-publish/commit/74dc26cf07e7f8a096d292131c6c3fbcd2f8190e))
+* **deps:** update playwright monorepo to v1.46.0 ([d946c1f](https://github.com/ghost-fvtt/foundry-publish/commit/d946c1f0351c3221cd4c292bcc5c7ae29d26893b))
+* **deps:** update playwright monorepo to v1.46.1 ([31f4263](https://github.com/ghost-fvtt/foundry-publish/commit/31f4263fdef741572eefd2f4ad6f400342ac91be))
+* **deps:** update playwright monorepo to v1.47.0 ([1afde8a](https://github.com/ghost-fvtt/foundry-publish/commit/1afde8a8b4d3b41589106f285dc0ac0784c77f51))
+* **deps:** update playwright monorepo to v1.47.1 ([b46f3ed](https://github.com/ghost-fvtt/foundry-publish/commit/b46f3ed84bd17c52a8c98f0fca674beff5b607db))
+* **deps:** update playwright monorepo to v1.47.2 ([a7100e4](https://github.com/ghost-fvtt/foundry-publish/commit/a7100e4d6db1f1772cd844c35509ac91566b85e7))
+* **deps:** update playwright monorepo to v1.48.0 ([d6c3c72](https://github.com/ghost-fvtt/foundry-publish/commit/d6c3c729039559097e1a6623979486de6a1b98e6))
+* **deps:** update playwright monorepo to v1.48.1 ([7695e7a](https://github.com/ghost-fvtt/foundry-publish/commit/7695e7a04bf5f134d937e336307fe2efb3a09ad4))
+* **deps:** update playwright monorepo to v1.48.2 ([289fb4f](https://github.com/ghost-fvtt/foundry-publish/commit/289fb4f037e6a35648d3cde1f63a2727871b1476))
+* **deps:** update playwright monorepo to v1.49.0 ([#1022](https://github.com/ghost-fvtt/foundry-publish/issues/1022)) ([a21209b](https://github.com/ghost-fvtt/foundry-publish/commit/a21209b660bbf4c08aed343848cfe4c4544db919))
+* **deps:** update playwright monorepo to v1.49.1 ([#1040](https://github.com/ghost-fvtt/foundry-publish/issues/1040)) ([e5fa2bd](https://github.com/ghost-fvtt/foundry-publish/commit/e5fa2bd0ef914a1e1bae7749716b3a73eb82d008))
+* **deps:** update playwright monorepo to v1.50.0 ([#1076](https://github.com/ghost-fvtt/foundry-publish/issues/1076)) ([275e539](https://github.com/ghost-fvtt/foundry-publish/commit/275e5394906fafac54bf2683dfc499d2361ed94e))
+* **deps:** update playwright monorepo to v1.50.1 ([#1083](https://github.com/ghost-fvtt/foundry-publish/issues/1083)) ([d09f0dd](https://github.com/ghost-fvtt/foundry-publish/commit/d09f0dd1e6e3eab06b8e2be5d1d9417cd599abca))
+* fix publishing ([bb6312a](https://github.com/ghost-fvtt/foundry-publish/commit/bb6312a8d27248c2a00aec95f7fe9dd02b5c20c9))
+
 ## [3.0.0](https://github.com/ghost-fvtt/foundry-publish/compare/v2.4.1...v3.0.0) (2024-01-28)
 
 
