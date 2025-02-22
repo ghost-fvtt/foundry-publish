@@ -10,7 +10,7 @@ on:
       - 'v*.*.*'
 
 env:
-  node_version: 18
+  node_version: 22
 
 jobs:
   build:
