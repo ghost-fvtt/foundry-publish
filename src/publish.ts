@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-import type { Options } from './options';
+import type { Options } from './options.js';
 
 export async function publish(options: Options): Promise<void> {
   if (options.dryRun) {
@@ -33,7 +33,7 @@ export async function publish(options: Options): Promise<void> {
     }),
   });
 
-  const body = options.dryRun ? undefined : await response.json();
+  const body: unknown = options.dryRun ? undefined : await response.json();
 
   if (!response.ok) {
     throw new HttpError(response.status, body);

@@ -25,5 +25,5 @@ export type Manifest = z.infer<typeof Manifest>;
 
 export const ManifestFromString = z
   .string()
-  .transform((v) => JSON.parse(v))
+  .transform((v): unknown => JSON.parse(v))
   .pipe(Manifest);

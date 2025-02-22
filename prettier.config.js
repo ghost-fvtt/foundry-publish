@@ -2,7 +2,10 @@
 //
 // SPDX-License-Identifier: MIT
 
-module.exports = {
+/**
+ * @type {import("prettier").Config}
+ */
+export default {
   semi: true,
   trailingComma: 'all',
   singleQuote: true,

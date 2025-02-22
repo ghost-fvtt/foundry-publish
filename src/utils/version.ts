@@ -6,5 +6,8 @@ import { resolve } from 'node:path';
 import { readFileSync } from 'node:fs';
 
 import { rootPath } from './file-utils.js';
+import { z } from 'zod';
 
-export const version: string = JSON.parse(readFileSync(resolve(rootPath, 'package.json')).toString()).version;
+const PackageJSON = z.object({ version: z.string() });
+
+export const { version } = PackageJSON.parse(JSON.parse(readFileSync(resolve(rootPath, 'package.json')).toString()));
