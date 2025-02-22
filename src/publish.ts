@@ -44,7 +44,7 @@ async function login(page: Page, { username, password }: Options) {
 async function publishPackage(page: Page, options: Options) {
   console.log('Publishing package…');
   await page.goto(getPackageURL(options));
-  await page.getByRole('button', { name: 'Add' }).click();
+  await page.getByRole('button', { name: '+ Add' }).click();
   await page.locator('#id_version').fill(options.packageVersion);
   await page.locator('#id_manifest').fill(options.manifestURL);
   if (options.changelogURL !== undefined) {
