@@ -6,7 +6,7 @@ SPDX-License-Identifier: MIT
 
 # Foundry Publish
 
-[![Checks](https://github.com/ghost-fvtt/foundry-publish/workflows/Checks/badge.svg)](https://github.com/ghost-fvtt/foundry-publish/actions)
+[![Checks](https://github.com/ghost-fvtt/foundry-publish/actions/workflows/checks.yml/badge.svg)](https://github.com/ghost-fvtt/foundry-publish/actions)
 [![npm downloads](https://img.shields.io/npm/dm/@ghost-fvtt/foundry-publish?color=orange&logo=npm)](https://www.npmjs.com/package/@ghost-fvtt/foundry-publish)
 [![Docker pulls](https://img.shields.io/docker/pulls/johannesloher/foundry-publish?logo=docker)](https://hub.docker.com/r/johannesloher/foundry-publish)
 [![REUSE status](https://api.reuse.software/badge/github.com/ghost-fvtt/foundry-publish)](https://api.reuse.software/info/github.com/ghost-fvtt/foundry-publish)
