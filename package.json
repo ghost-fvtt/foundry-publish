@@ -49,7 +49,7 @@
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
     "@eslint/js": "9.26.0",
-    "@types/node": "22.15.16",
+    "@types/node": "22.15.17",
     "commitlint": "19.8.1",
     "eslint": "9.26.0",
     "eslint-config-prettier": "10.1.3",
