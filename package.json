@@ -48,10 +48,10 @@
   "devDependencies": {
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
-    "@eslint/js": "9.33.0",
+    "@eslint/js": "9.34.0",
     "@types/node": "22.17.2",
     "commitlint": "19.8.1",
-    "eslint": "9.33.0",
+    "eslint": "9.34.0",
     "eslint-config-prettier": "10.1.8",
     "husky": "9.1.7",
     "lint-staged": "16.1.5",
