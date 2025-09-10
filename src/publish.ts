@@ -11,7 +11,7 @@ export async function publish(options: Options): Promise<void> {
     console.log(`Publishing Foundry VTT package with id '${options.packageID}'.`);
   }
 
-  const response = await fetch('https://api.foundryvtt.com/_api/packages/release_version/', {
+  const response = await fetch('https://foundryvtt.com/_api/packages/release_version/', {
     headers: {
       'Content-Type': 'application/json',
       Authorization: options.token,
