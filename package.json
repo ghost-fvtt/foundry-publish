@@ -57,7 +57,7 @@
     "lint-staged": "17.1.0",
     "prettier": "3.9.6",
     "rimraf": "6.1.3",
-    "commit-and-tag-version": "13.0.0",
+    "commit-and-tag-version": "13.1.0",
     "typescript": "5.9.3",
     "typescript-eslint": "8.65.0"
   },
