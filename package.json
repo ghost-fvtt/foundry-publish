@@ -62,7 +62,7 @@
     "typescript-eslint": "8.65.0"
   },
   "dependencies": {
-    "chalk": "^5.3.0",
+    "chalk": "^6.0.0",
     "commander": "^15.0.0",
     "zod": "^4.0.0"
   },
