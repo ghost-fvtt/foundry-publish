@@ -46,11 +46,11 @@
     "access": "public"
   },
   "devDependencies": {
-    "@commitlint/cli": "21.2.4",
-    "@commitlint/config-conventional": "21.2.4",
+    "@commitlint/cli": "21.3.0",
+    "@commitlint/config-conventional": "21.3.0",
     "@eslint/js": "10.0.1",
     "@types/node": "26.6.11",
-    "commitlint": "21.2.4",
+    "commitlint": "21.3.0",
     "eslint": "10.16.0",
     "eslint-config-prettier": "10.1.9",
     "husky": "9.1.7",
